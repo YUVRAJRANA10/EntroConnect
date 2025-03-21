@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EntrepreneurConnect - Mentorship</title>
+  <link rel="stylesheet" href="src/output.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+</head>
+<body class="bg-white dark:bg-gray-900">
+  <!-- Navigation -->
+  <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="src/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <span><img height="40" width="40" src="../logio.jpeg" alt=""></span>
+        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">EntroConnect</span>
+      </a>
+
+      <!-- Search Bar -->
+      <div class="flex md:order-1 flex-1 max-w-lg mx-4">
+        <form class="flex-1 relative">
+          <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+              </svg>
+            </div>
+            <input type="search" id="mentor-search" class="block w-full p-2.5 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search mentors by domain, expertise..." required>
+          </div>
+        </form>
+      </div>
+
+      <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+        <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-900 dark:border-gray-700">
+          <li><a href="src/index.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Home</a></li>
+          <li><a href="./mentorship.html" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500">Mentorship</a></li>
+          <li><a href="learning.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Learning</a></li>
+          <li><a href="network.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Network</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Find Mentor Section -->
+  <section class="bg-white dark:bg-gray-900 py-16 pt-24">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-4">Find Your Perfect Mentor Match</h2>
+        <p class="text-lg text-gray-500 dark:text-gray-400 mb-8">Tell us about your needs and we'll connect you with the most suitable mentor</p>
+      </div>
+
+      <!-- Mentor Matching Section -->
+      <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg mb-16">
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">Find the Right Mentor for Your Startup</h3>
+    
+        
+          <div class="max-w-4xl mx-auto">
+            <!-- Appointments and Messages Section -->
+            <div class="mb-8 flex space-x-4">
+              <button onclick="toggleSection('appointmentsList')" class="bg-white text-blue-600 py-2 px-4 rounded-md hover:bg-blue-50">
+                <i class="fas fa-calendar-check"></i> My Appointments
+              </button>
+              <button onclick="toggleSection('messagesList')" class="bg-white text-blue-600 py-2 px-4 rounded-md hover:bg-blue-50">
+                <i class="fas fa-envelope"></i> My Messages
+              </button>
+            </div>
+        
+            <!-- Appointments List -->
+            <div id="appointmentsList" class="bg-white p-6 rounded-lg shadow-lg mb-8 hidden">
+              <h2 class="text-xl font-semibold mb-4">My Appointments</h2>
+              <div id="appointmentsContent" class="space-y-3"></div>
+            </div>
+        
+            <!-- Messages List -->
+            <div id="messagesList" class="bg-white p-6 rounded-lg shadow-lg mb-8 hidden">
+              <h2 class="text-xl font-semibold mb-4">My Messages</h2>
+              <div id="messagesContent" class="space-y-3"></div>
+            </div>
+        
+            <!-- Mentor Matching Section -->
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+              <h1 class="text-2xl font-bold mb-6">Find the Right Mentor for Your Startup</h1>
+              
+              <!-- User Input Form -->
+              <form id="problemForm" class="space-y-4">
+                <div>
+                  <label for="problemCategory" class="block text-sm font-medium text-gray-700">Select Problem Category</label>
+                  <select id="problemCategory" name="problemCategory" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+                    <option value="financial">Financial</option>
+                    <option value="administration">Administration</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="technology">Technology</option>
+                    <option value="legal">Legal</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="problemDescription" class="block text-sm font-medium text-gray-700">Describe Your Problem</label>
+                  <textarea id="problemDescription" name="problemDescription" rows="4" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="e.g., I need help with fundraising..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">Find Mentors</button>
+              </form>
+        
+              <!-- Mentor Results -->
+              <div id="mentorResults" class="mt-8 space-y-4 hidden">
+                <h2 class="text-xl font-semibold">Top 5 Mentors for You</h2>
+                <div id="mentorList" class="space-y-3"></div>
+              </div>
+            </div>
+          </div>
+        
+          <!-- Modals for Booking and Messaging -->
+          <!-- Booking Modal -->
+          <div id="bookingModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+            <div class="bg-white p-6 rounded-lg w-96">
+              <h3 class="text-xl font-bold mb-4">Book Appointment</h3>
+              <form id="bookingForm">
+                <div class="mb-4">
+                  <label for="userName" class="block text-sm font-medium text-gray-700">Your Name</label>
+                  <input type="text" id="userName" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                </div>
+                <div class="mb-4">
+                  <label for="userEmail" class="block text-sm font-medium text-gray-700">Your Email</label>
+                  <input type="email" id="userEmail" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                </div>
+                <div class="mb-4">
+                  <label for="userPhone" class="block text-sm font-medium text-gray-700">Your Phone</label>
+                  <input type="tel" id="userPhone" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                </div>
+                <div class="mb-4">
+                  <label for="bookingDate" class="block text-sm font-medium text-gray-700">Select Date</label>
+                  <input type="date" id="bookingDate" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                </div>
+                <div class="mb-4">
+                  <label for="bookingTime" class="block text-sm font-medium text-gray-700">Select Time</label>
+                  <input type="time" id="bookingTime" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">Confirm Booking</button>
+              </form>
+              <button onclick="closeModal('bookingModal')" class="mt-4 w-full bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600">Cancel</button>
+            </div>
+          </div>
+        
+          <!-- Messaging Modal -->
+          <div id="messageModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+            <div class="bg-white p-6 rounded-lg w-96">
+              <h3 class="text-xl font-bold mb-4">Message Mentor</h3>
+              <form id="messageForm">
+                <div class="mb-4">
+                  <label for="userNameMessage" class="block text-sm font-medium text-gray-700">Your Name</label>
+                  <input type="text" id="userNameMessage" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                </div>
+                <div class="mb-4">
+                  <label for="userEmailMessage" class="block text-sm font-medium text-gray-700">Your Email</label>
+                  <input type="email" id="userEmailMessage" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                </div>
+                <div class="mb-4">
+                  <label for="messageText" class="block text-sm font-medium text-gray-700">Your Message</label>
+                  <textarea id="messageText" rows="4" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Type your message..." required></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">Send Message</button>
+              </form>
+              <button onclick="closeModal('messageModal')" class="mt-4 w-full bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600">Cancel</button>
+            </div>
+          </div>
+        
+          <!-- Edit Message Modal -->
+          <div id="editMessageModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+            <div class="bg-white p-6 rounded-lg w-96">
+              <h3 class="text-xl font-bold mb-4">Edit Message</h3>
+              <form id="editMessageForm">
+                <div class="mb-4">
+                  <label for="editMessageText" class="block text-sm font-medium text-gray-700">Your Message</label>
+                  <textarea id="editMessageText" rows="4" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">Update Message</button>
+              </form>
+              <button onclick="closeModal('editMessageModal')" class="mt-4 w-full bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600">Cancel</button>
+            </div>
+          </div>
+        
+          
+        
+  <!-- Hero Section -->
+  <section class="bg-white dark:bg-gray-900">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Find Your Perfect Mentor</h1>
+      <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">Connect with experienced industry professionals who can guide you through your entrepreneurial journey.</p>
+      <div class="flex flex-wrap justify-center gap-4 mb-8">
+        <button type="button" class="domain-filter text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" data-domain="all">All Domains</button>
+        <button type="button" class="domain-filter text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" data-domain="tech">Technology</button>
+        <button type="button" class="domain-filter text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" data-domain="finance">Finance</button>
+        <button type="button" class="domain-filter text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" data-domain="marketing">Marketing</button>
+        <button type="button" class="domain-filter text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" data-domain="legal">Legal</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mentors Grid -->
+  <section class="bg-gray-50 dark:bg-gray-800 py-16">
+    <div class="max-w-screen-xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-4">Available Mentors</h2>
+        <p class="text-lg text-gray-500 dark:text-gray-400 mb-8">Connect with our expert mentors who are ready to guide you on your entrepreneurial journey</p>
+      </div>
+      <div id="mentors-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Mentor cards will be dynamically populated here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-gray-900">
+    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+      <div class="md:flex md:justify-between">
+        <div class="mb-6 md:mb-0">
+          <a href="src/index.html" class="flex items-center">
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">EntrepreneurConnect</span>
+          </a>
+          <p class="mt-4 max-w-xs text-sm text-gray-600 dark:text-gray-400">Empowering entrepreneurs through mentorship, resources, and community.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+          <div>
+            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
+            <ul class="text-gray-500 dark:text-gray-400 font-medium">
+              <li class="mb-4"><a href="#" class="hover:underline">Mentorship</a></li>
+              <li><a href="#" class="hover:underline">Learning Hub</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+            <ul class="text-gray-500 dark:text-gray-400 font-medium">
+              <li class="mb-4"><a href="#" class="hover:underline">Privacy Policy</a></li>
+              <li><a href="#" class="hover:underline">Terms &amp; Conditions</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">EntrepreneurConnect™</a>. All Rights Reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mentor Details Modal -->
+  <div id="mentor-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-2xl max-h-full">
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="mentor-modal">
+          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+        <div class="px-6 py-6 lg:px-8">
+          <div id="mentor-modal-content">
+            <!-- Modal content will be dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modals for Booking and Messaging -->
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg w-96">
+      <h3 class="text-xl font-bold mb-4">Book Appointment</h3>
+      <form id="bookingForm">
+        <div class="mb-4">
+          <label for="userName" class="block text-sm font-medium text-gray-700">Your Name</label>
+          <input type="text" id="userName" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+          <label for="userEmail" class="block text-sm font-medium text-gray-700">Your Email</label>
+          <input type="email" id="userEmail" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+          <label for="userPhone" class="block text-sm font-medium text-gray-700">Your Phone</label>
+          <input type="tel" id="userPhone" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+          <label for="bookingDate" class="block text-sm font-medium text-gray-700">Select Date</label>
+          <input type="date" id="bookingDate" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+          <label for="bookingTime" class="block text-sm font-medium text-gray-700">Select Time</label>
+          <input type="time" id="bookingTime" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">Confirm Booking</button>
+      </form>
+      <button onclick="closeModal('bookingModal')" class="mt-4 w-full bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Messaging Modal -->
+  <div id="messageModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg w-96">
+      <h3 class="text-xl font-bold mb-4">Message Mentor</h3>
+      <form id="messageForm">
+        <div class="mb-4">
+          <label for="userNameMessage" class="block text-sm font-medium text-gray-700">Your Name</label>
+          <input type="text" id="userNameMessage" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+          <label for="userEmailMessage" class="block text-sm font-medium text-gray-700">Your Email</label>
+          <input type="email" id="userEmailMessage" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+        </div>
+        <div class="mb-4">
+          <label for="messageText" class="block text-sm font-medium text-gray-700">Your Message</label>
+          <textarea id="messageText" rows="4" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" placeholder="Type your message..." required></textarea>
+        </div>
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">Send Message</button>
+      </form>
+      <button onclick="closeModal('messageModal')" class="mt-4 w-full bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Edit Message Modal -->
+  <div id="editMessageModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg w-96">
+      <h3 class="text-xl font-bold mb-4">Edit Message</h3>
+      <form id="editMessageForm">
+        <div class="mb-4">
+          <label for="editMessageText" class="block text-sm font-medium text-gray-700">Your Message</label>
+          <textarea id="editMessageText" rows="4" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required></textarea>
+        </div>
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">Update Message</button>
+      </form>
+      <button onclick="closeModal('editMessageModal')" class="mt-4 w-full bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    // Sample Mentor Data
+    const mentors = [
+      { name: "John Doe", expertise: "financial", description: "Expert in startup fundraising and financial planning." },
+      { name: "Jane Smith", expertise: "administration", description: "Specializes in operational efficiency and team management." },
+      { name: "Alice Johnson", expertise: "marketing", description: "Helps startups with branding and digital marketing strategies." },
+      { name: "Bob Brown", expertise: "technology", description: "Tech advisor with a focus on SaaS products." },
+      { name: "Charlie Davis", expertise: "legal", description: "Provides legal guidance for startups and IP protection." },
+      { name: "Eva Green", expertise: "financial", description: "Venture capitalist with a focus on early-stage startups." },
+      { name: "Frank White", expertise: "marketing", description: "Expert in growth hacking and customer acquisition." },
+    ];
+
+    // Appointments and Messages Data
+    let appointments = [];
+    let messages = [];
+    let currentEditIndex = null;
+
+    // Form Submission Handler
+    document.getElementById('problemForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Get User Input
+      const category = document.getElementById('problemCategory').value;
+      const description = document.getElementById('problemDescription').value;
+
+      // Filter Mentors Based on Category
+      const filteredMentors = mentors
+        .filter(mentor => mentor.expertise === category)
+        .slice(0, 5); // Limit to top 5
+
+      // Display Results
+      const mentorList = document.getElementById('mentorList');
+      mentorList.innerHTML = ''; // Clear previous results
+
+      if (filteredMentors.length > 0) {
+        filteredMentors.forEach((mentor, index) => {
+          mentorList.innerHTML += `
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <h3 class="font-bold">${mentor.name}</h3>
+              <p class="text-sm text-gray-600">${mentor.description}</p>
+              <div class="mt-2 flex space-x-4">
+                <button onclick="openModal('bookingModal')" class="text-blue-600 hover:text-blue-800">
+                  <i class="fas fa-calendar-alt"></i> Book Appointment
+                </button>
+                <button onclick="openMessageModal('${mentor.name}')" class="text-green-600 hover:text-green-800">
+                  <i class="fas fa-envelope"></i> Message
+                </button>
+              </div>
+            </div>
+          `;
+        });
+      } else {
+        mentorList.innerHTML = `<p class="text-gray-600">No mentors found for this category.</p>`;
+      }
+
+      // Show Results Section
+      document.getElementById('mentorResults').classList.remove('hidden');
+    });
+
+    // Modal Functions
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.remove('hidden');
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.add('hidden');
+    }
+
+    // Open Message Modal with Mentor Name
+    function openMessageModal(mentorName) {
+      document.getElementById('messageModal').classList.remove('hidden');
+      document.getElementById('messageForm').setAttribute('data-mentor', mentorName);
+    }
+
+    // Booking Form Submission
+    document.getElementById('bookingForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const userName = document.getElementById('userName').value;
+      const userEmail = document.getElementById('userEmail').value;
+      const userPhone = document.getElementById('userPhone').value;
+      const date = document.getElementById('bookingDate').value;
+      const time = document.getElementById('bookingTime').value;
+
+      // Save Appointment
+      appointments.push({ userName, userEmail, userPhone, date, time });
+      alert(`Appointment booked for ${date} at ${time}`);
+      closeModal('bookingModal');
+      updateAppointmentsList();
+    });
+
+    // Message Form Submission
+    document.getElementById('messageForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const userName = document.getElementById('userNameMessage').value;
+      const userEmail = document.getElementById('userEmailMessage').value;
+      const message = document.getElementById('messageText').value;
+      const mentorName = document.getElementById('messageForm').getAttribute('data-mentor');
+
+      // Save Message
+      messages.push({ userName, userEmail, message, mentorName });
+      alert(`Message sent to ${mentorName}`);
+      closeModal('messageModal');
+      updateMessagesList();
+    });
+
+    // Edit Message Form Submission
+    document.getElementById('editMessageForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const updatedMessage = document.getElementById('editMessageText').value;
+
+      // Update Message
+      messages[currentEditIndex].message = updatedMessage;
+      alert(`Message updated`);
+      closeModal('editMessageModal');
+      updateMessagesList();
+    });
+
+    // Toggle Sections
+    function toggleSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.classList.toggle('hidden');
+    }
+
+    // Update Appointments List
+    function updateAppointmentsList() {
+      const appointmentsContent = document.getElementById('appointmentsContent');
+      appointmentsContent.innerHTML = appointments.map(appointment => `
+        <div class="p-4 bg-gray-50 rounded-lg">
+          <h3 class="font-bold">${appointment.userName}</h3>
+          <p class="text-sm text-gray-600">${appointment.date} at ${appointment.time}</p>
+          <p class="text-sm text-gray-600">${appointment.userEmail} | ${appointment.userPhone}</p>
+        </div>
+      `).join('');
+    }
+
+    // Update Messages List
+    function updateMessagesList() {
+      const messagesContent = document.getElementById('messagesContent');
+      messagesContent.innerHTML = messages.map((message, index) => `
+        <div class="p-4 bg-gray-50 rounded-lg">
+          <h3 class="font-bold">To: ${message.mentorName}</h3>
+          <p class="text-sm text-gray-600">From: ${message.userName} (${message.userEmail})</p>
+          <p class="text-sm text-gray-600">${message.message}</p>
+          <button onclick="openEditModal(${index})" class="mt-2 text-blue-600 hover:text-blue-800">
+            <i class="fas fa-edit"></i> Edit
+          </button>
+        </div>
+      `).join('');
+    }
+
+    // Open Edit Modal
+    function openEditModal(index) {
+      currentEditIndex = index;
+      document.getElementById('editMessageText').value = messages[index].message;
+      openModal('editMessageModal');
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+  <script src="mentorship.js"></script>
+</body>
+</html> 

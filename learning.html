@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EntrepreneurConnect - Learning</title>
+  <link rel="stylesheet" href="output.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+</head>
+<body class="bg-white dark:bg-gray-900">
+  <!-- Navigation -->
+  <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <span><img height="40" width="40" src="../logio.jpeg" alt=""></span>
+        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">EntroConnect</span>
+      </a>
+
+      <!-- Search Bar -->
+      <div class="flex md:order-1 flex-1 max-w-lg mx-4">
+        <form class="flex-1 relative">
+          <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+              </svg>
+            </div>
+            <input type="search" id="course-search" class="block w-full p-2.5 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search courses..." required>
+          </div>
+        </form>
+      </div>
+
+      <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get Started</button>
+      </div>
+      <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+        <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-900 dark:border-gray-700">
+          <li><a href="src/index.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Home</a></li>
+          <li><a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Mentorship</a></li>
+          <li><a href="./learning.html" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500">Learning</a></li>
+          <li><a href="./network.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Network</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Learning Section -->
+  <section class="pt-24 bg-white dark:bg-gray-900">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-4">Basic Entrepreneurship Skills</h2>
+        <p class="text-lg text-gray-500 dark:text-gray-400">Master the fundamental skills needed to succeed as an entrepreneur</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="course-container">
+        <!-- Course cards will be dynamically populated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Government Schemes Section -->
+  <section class="bg-gray-50 dark:bg-gray-800">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-4">Government Support Schemes</h2>
+        <p class="text-lg text-gray-500 dark:text-gray-400">Explore government initiatives and schemes designed to support entrepreneurs and startups</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Startup India -->
+        <div class="bg-white rounded-lg shadow-lg dark:bg-gray-800 p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Startup India</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">Flagship initiative promoting entrepreneurship through funding, mentorship, and innovation support. Benefits include tax exemptions, patent fast-tracking, and self-certification compliance.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Funding Support</span>
+            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Tax Benefits</span>
+            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Mentorship</span>
+          </div>
+          <a href="https://www.startupindia.gov.in" target="_blank" class="inline-flex items-center text-blue-600 hover:underline">
+            Visit Official Website
+            <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- MSME Support -->
+        <div class="bg-white rounded-lg shadow-lg dark:bg-gray-800 p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">MSME Support Scheme</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">Comprehensive support for Micro, Small, and Medium Enterprises including credit guarantee schemes, technology upgradation, and market assistance.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Financial Aid</span>
+            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Tech Support</span>
+            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Market Access</span>
+          </div>
+          <a href="https://msme.gov.in" target="_blank" class="inline-flex items-center text-blue-600 hover:underline">
+            Visit Official Website
+            <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- MUDRA Loan -->
+        <div class="bg-white rounded-lg shadow-lg dark:bg-gray-800 p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">MUDRA Loan</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">Provides loans up to ₹10 lakh to micro enterprises without collateral. Three categories: Shishu, Kishore, and Tarun, based on business stage.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">Collateral-free</span>
+            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">Micro Finance</span>
+          </div>
+          <a href="https://www.mudra.org.in" target="_blank" class="inline-flex items-center text-blue-600 hover:underline">
+            Visit Official Website
+            <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Stand-Up India -->
+        <div class="bg-white rounded-lg shadow-lg dark:bg-gray-800 p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Stand-Up India</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">Supports SC, ST, and women entrepreneurs with loans between ₹10 lakh to ₹1 crore for greenfield enterprises in manufacturing, services, or trading.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Women Entrepreneurs</span>
+            <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">SC/ST Support</span>
+          </div>
+          <a href="https://www.standupmitra.in" target="_blank" class="inline-flex items-center text-blue-600 hover:underline">
+            Visit Official Website
+            <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- ASPIRE -->
+        <div class="bg-white rounded-lg shadow-lg dark:bg-gray-800 p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">ASPIRE</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">Scheme for Promotion of Innovation, Rural Industry & Entrepreneurship. Focuses on accelerating entrepreneurship and startup creation in rural and agriculture sectors.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Rural Focus</span>
+            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Innovation</span>
+          </div>
+          <a href="https://aspire.msme.gov.in" target="_blank" class="inline-flex items-center text-blue-600 hover:underline">
+            Visit Official Website
+            <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- PMEGP -->
+        <div class="bg-white rounded-lg shadow-lg dark:bg-gray-800 p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">PMEGP</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">Prime Minister's Employment Generation Programme offers credit-linked subsidies for manufacturing and service sector projects. Maximum subsidy of 35% in urban and 25% in rural areas.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300">Employment Generation</span>
+            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300">Subsidy</span>
+          </div>
+          <a href="https://www.kviconline.gov.in/pmegp" target="_blank" class="inline-flex items-center text-blue-600 hover:underline">
+            Visit Official Website
+            <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- CGTMSE -->
+        <div class="bg-white rounded-lg shadow-lg dark:bg-gray-800 p-6">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">CGTMSE</h3>
+          <p class="text-gray-600 dark:text-gray-400 mb-4">Credit Guarantee Fund Scheme provides collateral-free credit for MSMEs up to ₹2 crore. Helps new and existing businesses access institutional credit.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-pink-100 text-pink-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-pink-900 dark:text-pink-300">Credit Guarantee</span>
+            <span class="bg-pink-100 text-pink-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-pink-900 dark:text-pink-300">Collateral Free</span>
+          </div>
+          <a href="https://www.cgtmse.in" target="_blank" class="inline-flex items-center text-blue-600 hover:underline">
+            Visit Official Website
+            <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+              <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+  <script src="learning.js"></script>
+</body>
+</html> 
